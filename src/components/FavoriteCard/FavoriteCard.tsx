@@ -1,6 +1,6 @@
 import type { IFavoriteCard } from '@appTypes/interfaces';
 import { IconNavArrow } from '@assets/icons';
-import { addFavorite, removeFavorite } from '@slices/favoriteSlice';
+import { addFavoriteAsync, removeFavoriteAsync } from '@slices/favoriteSlice';
 import type { AppDispatch, RootState } from '@store/store';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -36,10 +36,10 @@ function FavoriteCard({
   const handleFavoriteClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (isFavorite) {
-      dispatch(removeFavorite(id));
+      dispatch(removeFavoriteAsync(id));
     } else {
       dispatch(
-        addFavorite({
+        addFavoriteAsync({
           id,
           name: title,
           description: text,

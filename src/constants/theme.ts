@@ -1,7 +1,7 @@
 export const colors = {
   primaryBlue: '#5E7BC7',
   accentRed: '#C75E5E',
-  darkGrey: '#373737',
+  darkGrey: '#808080',
   mediumGrey: '#808080',
   lightGreyBorder: '#C4C4C4',
   white: '#FFFFFF',

@@ -1,6 +1,6 @@
 import { IconFavorite, IconRoute } from '@assets/icons';
 import SearchInput from '@components/SearchInput/SearchInput';
-import { addFavorite, removeFavorite } from '@slices/favoriteSlice';
+import { addFavoriteAsync, removeFavoriteAsync } from '@slices/favoriteSlice';
 import { setRouteTarget } from '@slices/routeSlice';
 import type { AppDispatch, RootState } from '@store/store';
 import { Title } from '@styles/BaseStyle';
@@ -38,9 +38,9 @@ function PlacePanel() {
   const handleFavoriteToggle = () => {
     if (!poi) return;
     if (isFavorite) {
-      dispatch(removeFavorite(poi.id));
+      dispatch(removeFavoriteAsync(poi.id));
     } else {
-      dispatch(addFavorite(poi));
+      dispatch(addFavoriteAsync(poi));
     }
   };
 

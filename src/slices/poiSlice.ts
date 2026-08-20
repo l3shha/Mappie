@@ -45,7 +45,7 @@ export const fetchPOI = createAsyncThunk<
     if (!Array.isArray(data)) return [];
 
     const pois: IPOI[] = await Promise.all(
-      data.slice(0, 20).map(async (item: IOverpassPOIItem) => {
+      data.slice(0, 9).map(async (item: IOverpassPOIItem) => {
         const details = await fetchDetailsByXid(item.xid);
         return {
           id: item.xid,
@@ -82,7 +82,7 @@ export const fetchPOIByName = createAsyncThunk<
       if (!Array.isArray(data.features)) return [];
 
       const pois: IPOI[] = await Promise.all(
-        data.features.slice(0, 20).map(async (item: IFeatureItem) => {
+        data.features.slice(0, 9).map(async (item: IFeatureItem) => {
           const details = await fetchDetailsByXid(item.properties.xid);
           return {
             id: item.properties.xid,
