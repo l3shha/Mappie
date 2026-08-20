@@ -139,9 +139,7 @@ Environment variables must be configured in the Vercel project settings.
 
 ## 👨‍💻 Author
 
-Alexey
-
-GitHub: https://github.com/l3shha/Mappie
+**Alexey Ramanenya** · [GitHub](https://github.com/l3shha)
 
 ---
 
