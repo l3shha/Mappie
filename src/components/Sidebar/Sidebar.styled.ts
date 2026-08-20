@@ -14,7 +14,7 @@ export const SidebarWrapper = styled.div`
     width: 80px;
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 420px) {
     width: 70px;
   }
 `;
@@ -30,7 +30,7 @@ export const Logo = styled.img`
   height: 30px;
   margin-bottom: 40px;
 
-  @media (max-width: 400px) {
+  @media (max-width: 420px) {
     width: 20px;
     height: 20px;
   }

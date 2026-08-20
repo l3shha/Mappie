@@ -39,8 +39,9 @@ export const BaseIconStyle = css`
   height: 24px;
   flex-shrink: 0;
 
-  @media (max-width: 400px) {
-    width: 15px;
+  @media (max-width: 420px) {
+    width: 18px;
+    height: 18px;
   }
 `;
 
@@ -55,8 +56,9 @@ export const BaseButton = styled.button`
   transition: all 0.2s ease;
   border: none;
 
-  @media (max-width: 400px) {
-    padding: 5px 10px;
+  @media (max-width: 420px) {
+    padding: 8px 14px;
+    font-size: 14px;
   }
 `;
 
@@ -65,10 +67,12 @@ export const BaseInput = styled.input`
   border-radius: ${borderRadius.large};
   border: ${border.input};
   font-family: ${fontFamilies.primary};
+  font-size: 16px;
   outline: none;
 
-  @media (max-width: 400px) {
-    padding: 5px;
+  @media (max-width: 420px) {
+    padding: 8px;
+    font-size: 14px;
   }
 `;
 
@@ -80,9 +84,6 @@ export const BasePanel = styled.div`
   height: 100vh;
   border-left: ${border.default};
 
-  @media (max-width: 400px) {
-    width: 90%;
-  }
   &::after {
     content: '';
     position: absolute;
@@ -95,11 +96,21 @@ export const BasePanel = styled.div`
     border-top-right-radius: ${borderRadius.large};
     border-bottom-right-radius: ${borderRadius.large};
     z-index: 1000;
+  }
 
-    @media (max-width: 860px) {
+  @media (max-width: 860px) {
+    &::after {
       width: 35px;
       height: 70px;
       right: -35px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    width: 90%;
+
+    &::after {
+      display: none;
     }
   }
 `;
@@ -118,12 +129,18 @@ export const PanelContentWrapper = styled.div`
 `;
 
 export const Title = styled.div`
-  padding: 5px 0px 15px 30px;
+  padding: 5px 0 15px 30px;
   font-weight: ${fontWeights.extraBold};
   font-size: 20px;
 
   @media (max-width: 860px) {
-    padding: 5px 0px 5px 20px;
+    padding: 5px 0 8px 20px;
+    font-size: 18px;
+  }
+
+  @media (max-width: 420px) {
+    padding: 5px 0 5px 15px;
+    font-size: 16px;
   }
 `;
 

@@ -6,6 +6,14 @@ import styled from 'styled-components';
 export const InputWrapper = styled.div`
   position: relative;
   padding: 25px;
+
+  @media (max-width: 860px) {
+    padding: 15px;
+  }
+
+  @media (max-width: 400px) {
+    padding: 10px;
+  }
 `;
 
 export const Input = styled(BaseInput)`
@@ -19,11 +27,15 @@ export const Input = styled(BaseInput)`
 
   &:focus {
     box-shadow: 0 0 5px ${colors.primaryBlueAlpha};
+  }
 
-    @media (max-width: 400px) {
-      width: 90%;
-      padding: 10px 50px;
-    }
+  @media (max-width: 860px) {
+    padding: 15px 55px;
+  }
+
+  @media (max-width: 400px) {
+    padding: 10px 40px;
+    font-size: 14px;
   }
 `;
 
@@ -37,4 +49,14 @@ export const SearchIcon = styled(IconSearch)`
   transform: translateY(-50%);
   color: ${colors.darkGrey};
   pointer-events: none;
+
+  @media (max-width: 860px) {
+    left: 40px;
+  }
+
+  @media (max-width: 400px) {
+    left: 25px;
+    width: 18px;
+    height: 18px;
+  }
 `;

@@ -30,6 +30,7 @@ export const FilterBlock = styled.div`
   overflow-y: auto;
   margin-left: 25px;
   margin-bottom: 45px;
+
   &::-webkit-scrollbar {
     width: 5px;
   }
@@ -47,8 +48,16 @@ export const FilterBlock = styled.div`
   scrollbar-color: #00000080 transparent;
 
   @media (max-width: 860px) {
-    padding: 10px 50px 10px 10px;
+    padding: 10px 40px 10px 10px;
     margin-left: 15px;
+    margin-bottom: 25px;
+  }
+
+  @media (max-width: 420px) {
+    width: 85%;
+    padding: 8px 25px 8px 8px;
+    margin-left: 10px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -58,7 +67,13 @@ export const DistanceBlock = styled.div`
   padding: 15px 25px;
 
   @media (max-width: 860px) {
-    padding: 5px 15px;
+    gap: 12px;
+    padding: 8px 15px;
+  }
+
+  @media (max-width: 420px) {
+    gap: 8px;
+    padding: 5px 10px;
   }
 `;
 
@@ -81,11 +96,23 @@ export const RadiusInput = styled(BaseInput)`
   }
 
   @media (max-width: 860px) {
+    width: 80px;
+    height: 45px;
     padding-left: 15px;
+  }
+
+  @media (max-width: 420px) {
+    width: 65px;
+    height: 40px;
+    padding-left: 10px;
   }
 `;
 
 export const RadiusInputText = styled.div`
   font-weight: ${fontWeights.extraBold};
   font-size: 16px;
+
+  @media (max-width: 420px) {
+    font-size: 14px;
+  }
 `;

@@ -51,7 +51,7 @@ function PlacePanel() {
   return (
     <Panel>
       <SearchInput value={searchValue} onChange={setSearchValue} />
-      <Title>Избранное</Title>
+      <Title>Информация о месте</Title>
       <PlaceWrapper>
         {poi.photo && !hasImageError ? (
           <PlaceImage

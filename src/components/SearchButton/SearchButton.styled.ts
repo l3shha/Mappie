@@ -20,5 +20,14 @@ export const Button = styled(BaseButton)`
   }
 
   @media (max-width: 860px) {
+    height: 50px;
+    margin: 0 15px 25px;
+  }
+
+  @media (max-width: 400px) {
+    width: 90%;
+    height: 42px;
+    margin: 0 10px 15px;
+    font-size: 14px;
   }
 `;

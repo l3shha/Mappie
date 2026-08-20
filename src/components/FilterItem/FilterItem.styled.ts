@@ -9,8 +9,15 @@ export const Wrapper = styled.div<{ selected: boolean }>`
   cursor: pointer;
   color: ${({ selected }) => (selected ? colors.darkGrey : colors.black)};
   font-weight: ${fontWeights.medium};
+  font-size: 16px;
 
   svg {
     ${BaseIconStyle};
+  }
+
+  @media (max-width: 400px) {
+    gap: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
   }
 `;
