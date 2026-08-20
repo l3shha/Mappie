@@ -21,16 +21,27 @@ import {
 } from '@constants/mapConfig';
 import { useUserLocation } from '@hooks/useUserLocation';
 import type { RootState } from '@store/store';
-import { DefaultIcon, poiIcon, userLocationIcon } from '@utils/mapUtils';
+import { DefaultIcon, getPOIIcon, userLocationIcon } from '@utils/mapUtils';
 import { memo, useMemo } from 'react';
 import { Circle, Marker, Popup, TileLayer, ZoomControl } from 'react-leaflet';
 import { useSelector } from 'react-redux';
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
-const POIMarker = memo(function POIMarker({ lat, lon, name }: TPOIMarkerProps) {
+interface POIMarkerProps extends TPOIMarkerProps {
+  category?: string;
+}
+
+const POIMarker = memo(function POIMarker({
+  lat,
+  lon,
+  name,
+  category,
+}: POIMarkerProps) {
+  const icon = useMemo(() => getPOIIcon(category), [category]);
+
   return (
-    <Marker position={[lat, lon]} icon={poiIcon}>
+    <Marker position={[lat, lon]} icon={icon}>
       <Popup>{name || 'Без названия'}</Popup>
     </Marker>
   );
@@ -38,10 +49,13 @@ const POIMarker = memo(function POIMarker({ lat, lon, name }: TPOIMarkerProps) {
 
 function Map() {
   const position = useUserLocation();
+
   const poi = useSelector((state: RootState) => state.poi.items);
+
   const searchRadius = useSelector(
     (state: RootState) => state.userLocation.radius
   );
+
   const routeTarget = useSelector((state: RootState) => state.route.target);
 
   const visiblePOI = useMemo(() => {
@@ -60,12 +74,15 @@ function Map() {
             attribution="&copy; OpenStreetMap contributors"
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
+
           <Marker position={position} icon={userLocationIcon} />
+
           <Circle
             center={position}
             radius={FIXED_CIRCLE_RADIUS}
             pathOptions={FixedCircleOptions}
           />
+
           {searchRadius && (
             <Circle
               center={position}
@@ -73,19 +90,28 @@ function Map() {
               pathOptions={DynamicCircleOptions}
             />
           )}
+
           {!routeTarget &&
-            visiblePOI.map(({ id, lat, lon, name }) => (
-              <POIMarker key={id} lat={lat} lon={lon} name={name} />
+            visiblePOI.map(({ id, lat, lon, name, category }) => (
+              <POIMarker
+                key={id}
+                lat={lat}
+                lon={lon}
+                name={name}
+                category={category}
+              />
             ))}
+
           {routeTarget && (
             <Marker
               key={`route-target-${routeTarget.lat}-${routeTarget.lon}`}
               position={[routeTarget.lat, routeTarget.lon]}
-              icon={poiIcon}
+              icon={getPOIIcon()}
             >
               <Popup>Точка назначения</Popup>
             </Marker>
           )}
+
           {routeTarget && position && (
             <RoutingLayer
               key={`routing-layer-${routeTarget.lat}-${routeTarget.lon}`}
