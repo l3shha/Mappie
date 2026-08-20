@@ -1,54 +1,148 @@
-# React + TypeScript + Vite
+# Mappie 🗺️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Mappie is a web application for discovering interesting places around you.
 
-Currently, two official plugins are available:
+The app provides an interactive map, place search, detailed information, route building, favorites, and user authentication.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## Expanding the ESLint configuration
+https://mappie-blue.vercel.app/
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ Features
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
+- 🗺️ Interactive map with Leaflet
+- 📍 Search for places around your location
+- 🔎 Search places by name
+- 📄 Detailed place information
+- ❤️ Personal favorites
+- 🔐 Email/password authentication
+- 🌐 Google authentication
+- ☁️ Favorites stored in Firebase Firestore
+- 🧭 Route building
+- 📱 Responsive interface
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Tech Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+- React
+- TypeScript
+- Vite
+- Redux Toolkit
+- React Router
+- Leaflet / React Leaflet
+- styled-components
+- Firebase Authentication
+- Firebase Cloud Firestore
+- OpenTripMap API
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
-```
+## 📁 Project Structure
+
+    src/
+    ├── components/      # Reusable UI components
+    ├── pages/           # Application pages
+    ├── hooks/           # Custom React hooks
+    ├── slices/          # Redux Toolkit slices
+    ├── store/           # Redux store
+    ├── constants/       # Constants and theme
+    ├── appTypes/        # TypeScript types
+    ├── assets/          # Images and icons
+    ├── firebase.ts      # Firebase configuration
+    └── main.tsx         # Application entry point
+
+## ⚙️ Installation
+
+### 1. Clone the repository
+
+    git clone https://github.com/l3shha/Mappie.git
+    cd Mappie
+
+### 2. Install dependencies
+
+    npm install
+
+### 3. Configure environment variables
+
+Create a `.env` file in the project root.
+
+You can use `.env.example` as a template:
+
+    # Firebase
+    VITE_FIREBASE_API_KEY=YOUR_FIREBASE_API_KEY
+    VITE_FIREBASE_AUTH_DOMAIN=YOUR_FIREBASE_AUTH_DOMAIN
+    VITE_FIREBASE_PROJECT_ID=YOUR_FIREBASE_PROJECT_ID
+    VITE_FIREBASE_STORAGE_BUCKET=YOUR_FIREBASE_STORAGE_BUCKET
+    VITE_FIREBASE_MESSAGING_SENDER_ID=YOUR_FIREBASE_MESSAGING_SENDER_ID
+    VITE_FIREBASE_APP_ID=YOUR_FIREBASE_APP_ID
+
+    # OpenTripMap
+    VITE_OPENTRIPMAP_API_KEY=YOUR_OPENTRIPMAP_API_KEY
+
+Never commit your `.env` file or real API keys to Git.
+
+### 4. Configure Firebase
+
+In Firebase Console:
+
+- Enable Email/Password authentication
+- Enable Google authentication
+- Create a Cloud Firestore database
+
+Firestore favorites are stored per authenticated user, using their Firebase UID.
+
+### 5. Start the development server
+
+    npm run dev
+
+The application will be available at:
+
+    http://localhost:5173
+
+## 🔥 Firebase
+
+Firebase Authentication is used for user accounts.
+
+Supported authentication methods:
+
+- Email/password
+- Google
+
+Cloud Firestore is used to store user favorites.
+
+Each user's favorites are associated with their Firebase UID, allowing them to access their saved places from different devices.
+
+## 🗺️ OpenTripMap
+
+OpenTripMap API is used to retrieve:
+
+- Places around the user
+- Place details
+- Categories
+- Descriptions
+- Addresses
+- Images
+
+## ▶️ Available Scripts
+
+    npm run dev       # Start development server
+    npm run build     # Create production build
+    npm run preview   # Preview production build
+    npm run lint      # Run ESLint
+
+## 🚀 Deployment
+
+The application is deployed with Vercel.
+
+Live version:
+
+https://mappie-blue.vercel.app/
+
+Environment variables must be configured in the Vercel project settings.
+
+## 👨‍💻 Author
+
+Alexey
+
+GitHub: https://github.com/l3shha/Mappie
+
+---
+
+⭐ If you like the project, consider giving it a star.
