@@ -13,17 +13,26 @@ export const Panel = styled(BasePanel)`
   @media (max-width: 860px) {
     width: 300px;
   }
+
+  @media (max-width: 500px) {
+    width: 100%;
+    height: calc(100vh - 64px);
+  }
 `;
 
 export const TopSection = styled.div`
   ${flexColumn};
   flex: 1;
-  overflow-y: auto;
+  min-height: 0;
+  overflow: hidden;
 `;
 
 export const FilterBlock = styled.div`
   width: 88%;
   max-height: 49%;
+  min-height: 0;
+  flex-shrink: 1;
+
   border-radius: ${borderRadius.large};
   border: ${border.default};
   padding: 20px 60px 20px 20px;
@@ -53,17 +62,20 @@ export const FilterBlock = styled.div`
     margin-bottom: 25px;
   }
 
-  @media (max-width: 420px) {
+  @media (max-width: 500px) {
     width: 85%;
+    max-height: none;
+    flex: 1;
     padding: 8px 25px 8px 8px;
     margin-left: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 `;
 
 export const DistanceBlock = styled.div`
   ${flexGap('20px')};
   align-items: center;
+  flex-shrink: 0;
   padding: 15px 25px;
 
   @media (max-width: 860px) {
@@ -71,7 +83,7 @@ export const DistanceBlock = styled.div`
     padding: 8px 15px;
   }
 
-  @media (max-width: 420px) {
+  @media (max-width: 500px) {
     gap: 8px;
     padding: 5px 10px;
   }
@@ -101,7 +113,7 @@ export const RadiusInput = styled(BaseInput)`
     padding-left: 15px;
   }
 
-  @media (max-width: 420px) {
+  @media (max-width: 500px) {
     width: 65px;
     height: 40px;
     padding-left: 10px;
@@ -112,7 +124,7 @@ export const RadiusInputText = styled.div`
   font-weight: ${fontWeights.extraBold};
   font-size: 16px;
 
-  @media (max-width: 420px) {
+  @media (max-width: 500px) {
     font-size: 14px;
   }
 `;
