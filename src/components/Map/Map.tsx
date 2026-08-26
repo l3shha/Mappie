@@ -69,6 +69,7 @@ function Map() {
           center={position}
           zoom={DEFAULT_MAP_ZOOM}
           zoomControl={false}
+          attributionControl={false}
         >
           <TileLayer
             attribution="&copy; OpenStreetMap contributors"

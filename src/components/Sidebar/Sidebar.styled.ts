@@ -9,24 +9,24 @@ export const SidebarWrapper = styled.div`
   ${flexColumn};
   justify-content: space-between;
   align-items: center;
-
   background-color: ${colors.white};
   flex-shrink: 0;
+
+  @media (max-width: 860px) {
+    width: 60px;
+  }
 
   @media (max-width: 500px) {
     position: fixed;
     left: 0;
     bottom: 0;
     z-index: 1000;
-
     width: 100%;
     height: 64px;
-
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
-    border-top: 1px solid #00000010;
+    border-top: 1px solid #999;
   }
 `;
 
@@ -39,7 +39,6 @@ export const TopSection = styled.div`
     flex-direction: row;
     align-items: center;
     gap: 24px;
-
     margin: 0;
   }
 `;

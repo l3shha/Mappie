@@ -108,6 +108,7 @@ export const BasePanel = styled.div`
 
   @media (max-width: 500px) {
     height: calc(100vh - 64px);
+    border-left: none;
   }
 
   @media (max-width: 420px) {

@@ -78,6 +78,11 @@ export const PlaceWrapper = styled(PanelContentWrapper)`
   margin: 0px 25px 5px 25px;
   padding: 20px;
   border-radius: ${borderRadius.large};
+
+  @media (max-width: 500px) {
+    width: 93%;
+    margin: 5px 10px;
+  }
 `;
 
 export const Placeholder = styled.div`

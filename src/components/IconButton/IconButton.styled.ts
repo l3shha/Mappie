@@ -40,6 +40,11 @@ export const StyledButton = styled(BaseButton)<{
     transition: color 0.2s ease;
   }
 
+  @media (max-width: 860px) {
+    width: 50px;
+    height: 50px;
+  }
+
   @media (max-width: 500px) {
     width: 44px;
     height: 44px;
